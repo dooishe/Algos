@@ -26,6 +26,7 @@ public class ListUtils {
     return B;
   }
 
+  /* сложность O(n), память O(n) */
   public static int lPalin(ListNode A) {
     ListNode B = copyList(A);
     B = reverseList(B);
