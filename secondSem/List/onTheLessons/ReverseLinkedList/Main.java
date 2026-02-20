@@ -1,4 +1,7 @@
-package secondSem.onTheLessons.ReverseLinkedList;
+package secondSem.List.onTheLessons.ReverseLinkedList;
+
+import static secondSem.List.ListUtils.ListNode;
+import secondSem.List.ListUtils;
 
 public class Main {
   public static void main(String[] args) {
@@ -17,35 +20,11 @@ public class Main {
       node = node.next;
     }
     System.err.println("\n");
-    head = reverseList(head);
+    head = ListUtils.reverseList(head);
     node = head;
     while (node != null) {
       System.out.print(node.val + " ");
       node = node.next;
     }
-  }
-
-  static class ListNode {
-    public int val;
-    public ListNode next;
-
-    ListNode(int x) {
-      val = x;
-      next = null;
-    }
-  }
-
-  /* сложность O(n), память O(1) */
-  public static ListNode reverseList(ListNode A) {
-    ListNode curr = A;
-    ListNode next = curr.next;
-    ListNode prev = null;
-    while (curr != null) {
-      next = curr.next;
-      curr.next = prev;
-      prev = curr;
-      curr = next;
-    }
-    return prev;
   }
 }
