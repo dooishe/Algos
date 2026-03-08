@@ -1,7 +1,7 @@
-package secondSem.List.onTheLessons.PalindromeList;
+package secondSem.onTheLessons.List.PalindromeList;
 
-import static secondSem.List.ListUtils.ListNode;
-import secondSem.List.ListUtils;
+import static secondSem.onTheLessons.List.ListUtils.ListNode;
+import secondSem.onTheLessons.List.ListUtils;
 
 public class Main {
   public static void main(String[] args) {

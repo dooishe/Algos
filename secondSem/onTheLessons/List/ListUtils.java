@@ -1,4 +1,4 @@
-package secondSem.List;
+package secondSem.onTheLessons.List;
 
 public class ListUtils {
   public static class ListNode {
