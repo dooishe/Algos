@@ -22,12 +22,10 @@ class Node {
 
 public class Main {
 
-    // Построение кодов
     public static void buildCodes(Node root, String code, Map<Character, String> map) {
         if (root == null)
             return;
 
-        // Если лист — сохраняем код
         if (root.left == null && root.right == null) {
             map.put(root.ch, code);
         }
