@@ -1,5 +1,6 @@
 package Bashirova;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 class Node {
@@ -32,6 +33,25 @@ public class Main {
 
         buildCodes(root.left, code + "0", map);
         buildCodes(root.right, code + "1", map);
+    }
+
+    public static void decoder(Node current, StringBuilder text, LinkedList<Character> listOfBites) {
+        if (current == null)
+            return;
+        while (true) {
+            if (current.left == null && current.right == null) {
+                text.append(current.ch);
+                return;
+            }
+            if (listOfBites.isEmpty())
+                return;
+            char c = listOfBites.remove();
+            if (c == '0') {
+                current = current.left;
+            } else {
+                current = current.right;
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -70,8 +90,18 @@ public class Main {
         for (char c : text.toCharArray()) {
             encoded.append(huffmanCodes.get(c));
         }
-
         System.out.println("\nИсходная строка: " + text);
         System.out.println("Закодированная строка: " + encoded.toString());
+
+        LinkedList<Character> listOfBites = new LinkedList<>();
+        for (char c : encoded.toString().toCharArray()) {
+            listOfBites.add(c);
+        }
+
+        StringBuilder encodedText = new StringBuilder();
+        while (!listOfBites.isEmpty()) {
+            decoder(root, encodedText, listOfBites);
+        }
+        System.out.println(encodedText);
     }
 }
